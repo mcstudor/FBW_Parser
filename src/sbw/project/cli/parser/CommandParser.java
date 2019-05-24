@@ -32,11 +32,15 @@ public class CommandParser {
 	private void removeComments(){
 		if(command.contains("//"))
 			command = command.substring(0, command.indexOf("//"));
+		command = command.trim();
 	}
 
 
 	//this is where the parsing really begins
 	private void singleParse() throws ParseException{
+		//if the string was only comments, or just empty to start, just return w/o processing.
+		if(command.length()==0)
+			return;
 		CommandChoice choice = commandChooser.chooseCommand(command);
 		choice.runCommand();
 	}

@@ -11,34 +11,34 @@ public class CommandChooser {
 	//The string regex that needs to be complied into a pattern
 
 	private static final String ID = "[a-zA-Z0-9]+";
-	private static final String ID_ONEPLUS = "(" + ID + ")+";
+	private static final String ID_ONEPLUS = "(" + ID + "\\s?)+";
 	private static final String REAL_NO = "[0-9]+(\\.[0-9]+)?";
 	private static final String FILENAME = "";
 	private static final String INT = "[0-9]+";
 	private static final String POS = "[(up)1234]";
-	private static final String LIM_SPEED_ACC = " WITH LIMIT " + REAL_NO +
-			" SPEED " + REAL_NO + " ACCELERATION " + REAL_NO;
+	private static final String SPEED_ACC = " SPEED " + REAL_NO + " ACCELERATION " + REAL_NO;
+	private static final String LIM_SPEED_ACC = " WITH LIMIT " + REAL_NO + SPEED_ACC;
+
 
 	private static final String[] COMMAND_PATTERNS = {
 			//CREATIONAL COMMANDS
 			"CREATE RUDDER " + ID + LIM_SPEED_ACC,
 			"CREATE ELEVATOR " + ID + LIM_SPEED_ACC,
-			"CREATE AILERON " + ID + " WITH LIMIT UP " + REAL_NO + "DOWN " + REAL_NO +
-					" SPEED " + REAL_NO + " ACCELERATION " + REAL_NO,
+			"CREATE AILERON " + ID + " WITH LIMIT UP " + REAL_NO + " DOWN " + REAL_NO + SPEED_ACC,
 			"CREATE SPLIT FLAP " + ID + LIM_SPEED_ACC,
 			"CREATE FOWLER FLAP " + ID + LIM_SPEED_ACC,
-			"CREATE ENGINE " + ID + LIM_SPEED_ACC,
-			"CREATE NOSE GEAR " + ID + LIM_SPEED_ACC,
-			"CREATE MAIN GEAR " + ID + LIM_SPEED_ACC,
+			"CREATE ENGINE " + ID + " WITH" + SPEED_ACC,
+			"CREATE NOSE GEAR " + ID + " WITH" + SPEED_ACC,
+			"CREATE MAIN GEAR " + ID + " WITH" + SPEED_ACC,
 
 			//STRUCTURAL COMMANDS
 			"DECLARE RUDDER CONTROLLER " + ID + " WITH RUDDER " + ID,
-			"DECLARE ELEVATOR CONTROLLER " + ID + " WITH ELEVATORS " + ID + ID,
-			"DECLARE AILERON CONTROLER " + ID + " WITH AILERONS " + ID_ONEPLUS + " PRIMARY " + ID +
-					"(SLAVE " + ID + " TO " + ID + "BY " + REAL_NO + " PERCENT)?",
+			"DECLARE ELEVATOR CONTROLLER " + ID + " WITH ELEVATORS " + ID + " " + ID,
+			"DECLARE AILERON CONTROLLER " + ID + " WITH AILERONS " + ID_ONEPLUS + " PRIMARY " + ID +
+					"( SLAVE " + ID + " TO " + ID + " BY " + REAL_NO + " PERCENT)*",
 			"DECLARE FLAP CONTROLLER " + ID + " WITH FLAPS " + ID_ONEPLUS,
 			"DECLARE ENGINE CONTROLLER " + ID + " WITH ENGINE[S]? " + ID_ONEPLUS,
-			"DECLARE GEAR CONTROLLER " + ID + " WITH GEAR NOSE " + ID + " MAIN " + ID + ID,
+			"DECLARE GEAR CONTROLLER " + ID + " WITH GEAR NOSE " + ID + " MAIN " + ID + " " + ID,
 			"DECLARE BUS " + ID + " WITH CONTROLLER[S]? " + ID_ONEPLUS,
 			"COMMIT",
 
