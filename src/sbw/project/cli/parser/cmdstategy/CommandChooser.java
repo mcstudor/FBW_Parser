@@ -9,9 +9,59 @@ public class CommandChooser {
 	private ActionSet actionSet;
 	private ArrayList<Pattern> patterns;
 	//The string regex that needs to be complied into a pattern
+
+	private static final String ID = "[a-zA-Z0-9]+";
+	private static final String ID_ONEPLUS = "(" + ID + ")+";
+	private static final String REAL_NO = "[0-9]+(\\.[0-9]+)?";
+	private static final String FILENAME = "";
+	private static final String INT = "[0-9]+";
+	private static final String POS = "[(up)1234]";
+	private static final String LIM_SPEED_ACC = " WITH LIMIT " + REAL_NO +
+			" SPEED " + REAL_NO + " ACCELERATION " + REAL_NO;
+
 	private static final String[] COMMAND_PATTERNS = {
-			"CREATE RUDDER [a-zA-Z0-9]+ WITH LIMIT [0-9\\.]+ SPEED [0-9\\.]+ ACCELERATION [0-9\\.]+",
-			"CREATE ELEVATOR [a-zA-Z0-9]+ WITH LIMIT [0-9\\.]+ SPEED [0-9\\.]+ ACCELERATION [0-9\\.]+"};
+			//CREATIONAL COMMANDS
+			"CREATE RUDDER " + ID + LIM_SPEED_ACC,
+			"CREATE ELEVATOR " + ID + LIM_SPEED_ACC,
+			"CREATE AILERON " + ID + " WITH LIMIT UP " + REAL_NO + "DOWN " + REAL_NO +
+					" SPEED " + REAL_NO + " ACCELERATION " + REAL_NO,
+			"CREATE SPLIT FLAP " + ID + LIM_SPEED_ACC,
+			"CREATE FOWLER FLAP " + ID + LIM_SPEED_ACC,
+			"CREATE ENGINE " + ID + LIM_SPEED_ACC,
+			"CREATE NOSE GEAR " + ID + LIM_SPEED_ACC,
+			"CREATE MAIN GEAR " + ID + LIM_SPEED_ACC,
+
+			//STRUCTURAL COMMANDS
+			"DECLARE RUDDER CONTROLLER " + ID + " WITH RUDDER " + ID,
+			"DECLARE ELEVATOR CONTROLLER " + ID + " WITH ELEVATORS " + ID + ID,
+			"DECLARE AILERON CONTROLER " + ID + " WITH AILERONS " + ID_ONEPLUS + " PRIMARY " + ID +
+					"(SLAVE " + ID + " TO " + ID + "BY " + REAL_NO + " PERCENT)?",
+			"DECLARE FLAP CONTROLLER " + ID + " WITH FLAPS " + ID_ONEPLUS,
+			"DECLARE ENGINE CONTROLLER " + ID + " WITH ENGINE[S]? " + ID_ONEPLUS,
+			"DECLARE GEAR CONTROLLER " + ID + " WITH GEAR NOSE " + ID + " MAIN " + ID + ID,
+			"DECLARE BUS " + ID + " WITH CONTROLLER[S]? " + ID_ONEPLUS,
+			"COMMIT",
+
+			//BEHAVIORAL COMMANDS
+			"DO " + ID + " DEFLECT RUDDER " + REAL_NO + "((LEFT)|(RIGHT))",
+			"DO " + ID + " DEFLECT ELEVATOR " + REAL_NO + " ((UP)|(DOWN))",
+			"DO " + ID + " DEFLECT AILERONS " + REAL_NO + " ((UP)|(DOWN))",
+			"DO " + ID + " SPEED BREAK ((ON)|(OFF))",
+			"DO " + ID + " DEFLECT FLAP " + POS,
+			"DO " + ID + " SET POWER " + REAL_NO,
+			"DO " + ID + " SET POWER " + REAL_NO + " ENGINE " + ID,
+			"DO " + ID + " GEAR ((UP)|(DOWN))",
+			"HALT " + ID,
+
+			//MISC COMMANDS
+			"@CLOCK " + INT,
+			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))",
+			"@CLOCK",
+			"@RUN \"" + FILENAME + "\"",
+			"@EXIT",
+			"@WAIT " + INT
+
+	};
 
 	public CommandChooser(ActionSet actionSet){
 		this.actionSet = actionSet;
@@ -55,61 +105,92 @@ public class CommandChooser {
 			case 1:
 				return new CommandCreateElevator(actionSet, command);
 			case 2:
-				//Create Aileron
+				//Create aileron
+				return new CommandDefault(actionSet, command);
 			case 3:
 				//Create split flap
+				return new CommandDefault(actionSet, command);
 			case 4:
 				//Create fowler flap
+				return new CommandDefault(actionSet, command);
 			case 5:
 				//Create engine
+				return new CommandDefault(actionSet, command);
 			case 6:
 				//Create nose gear
+				return new CommandDefault(actionSet, command);
 			case 7:
 				//create main gear
+				return new CommandDefault(actionSet, command);
 			case 8:
 				//Declare rudder controller
+				return new CommandDefault(actionSet, command);
 			case 9:
 				//Declare elevator controller
+				return new CommandDefault(actionSet, command);
 			case 10:
 				//Declare aileron controller
+				return new CommandDefault(actionSet, command);
 			case 11:
 				//Declare flap controller
+				return new CommandDefault(actionSet, command);
 			case 12:
 				//declare engine controller
+				return new CommandDefault(actionSet, command);
 			case 13:
 				//declare gear controller
+				return new CommandDefault(actionSet, command);
 			case 14:
 				//declare bus
+				return new CommandDefault(actionSet, command);
 			case 15:
 				//commit
+				return new CommandDefault(actionSet, command);
 			case 16:
 				//do rudder
+				return new CommandDefault(actionSet, command);
 			case 17:
 				//do elevator
+				return new CommandDefault(actionSet, command);
 			case 18:
 				//do ailerons
+				return new CommandDefault(actionSet, command);
 			case 19:
 				//do speed brake
+				return new CommandDefault(actionSet, command);
 			case 20:
 				//do flap
+				return new CommandDefault(actionSet, command);
 			case 21:
 				//do engine power all
+				return new CommandDefault(actionSet, command);
 			case 22:
 				//do engine power single
+				return new CommandDefault(actionSet, command);
 			case 23:
 				//do gear
+				return new CommandDefault(actionSet, command);
 			case 24:
 				//halt
+				return new CommandDefault(actionSet, command);
 			case 25:
 				//@clock <rate>
+				return new CommandDefault(actionSet, command);
 			case 26:
 				//@clock <optn>
+				return new CommandDefault(actionSet, command);
 			case 27:
 				//@clock
+				return new CommandDefault(actionSet, command);
 			case 28:
 				//@run file
+				return new CommandDefault(actionSet, command);
 			case 29:
 				//@exit
+				return new CommandDefault(actionSet, command);
+			case 30:
+				//@wait
+				return new CommandDefault(actionSet, command);
 			default:
 				throw new ParseException("Value out of bounds", -1);
 
