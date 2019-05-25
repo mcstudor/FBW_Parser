@@ -120,77 +120,77 @@ public class CommandChooser {
 				//Create nose gear
 				return new CommandDefault(actionSet, command);
 			case 7:
-				//create main gear
+				//Create main gear
 				return new CommandDefault(actionSet, command);
 			case 8:
 				//Declare rudder controller
-				return new CommandDefault(actionSet, command);
+				return new CommandDeclareRudderController(actionSet, command);
 			case 9:
 				//Declare elevator controller
-				return new CommandDefault(actionSet, command);
+				return new CommandDeclareElevatorController(actionSet, command);
 			case 10:
 				//Declare aileron controller
-				return new CommandDefault(actionSet, command);
+				return new CommandDeclareAileronController(actionSet, command);
 			case 11:
 				//Declare flap controller
-				return new CommandDefault(actionSet, command);
+				return new CommandDeclareFlapController(actionSet, command);
 			case 12:
-				//declare engine controller
-				return new CommandDefault(actionSet, command);
+				//Declare engine controller
+				return new CommandDeclareEngineController(actionSet, command);
 			case 13:
-				//declare gear controller
-				return new CommandDefault(actionSet, command);
+				//Declare gear controller
+				return new CommandDeclareGearController(actionSet, command);
 			case 14:
-				//declare bus
-				return new CommandDefault(actionSet, command);
+				//Declare bus
+				return new CommandDeclareBus(actionSet, command);
 			case 15:
-				//commit
-				return new CommandDefault(actionSet, command);
+				//Commit
+				return new CommandCommit(actionSet, command);
 			case 16:
-				//do rudder
-				return new CommandDefault(actionSet, command);
+				//Do rudder
+				return new CommandDoRudder(actionSet, command);
 			case 17:
-				//do elevator
-				return new CommandDefault(actionSet, command);
+				//Do elevator
+				return new CommandDoElevator(actionSet, command);
 			case 18:
-				//do ailerons
-				return new CommandDefault(actionSet, command);
+				//Do ailerons
+				return new CommandDoAilerons(actionSet, command);
 			case 19:
-				//do speed brake
-				return new CommandDefault(actionSet, command);
+				//Do speed brake
+				return new CommandDoSpeedBrake(actionSet, command);
 			case 20:
-				//do flap
-				return new CommandDefault(actionSet, command);
+				//Do flap
+				return new CommandDoFlap(actionSet, command);
 			case 21:
-				//do engine power all
-				return new CommandDefault(actionSet, command);
+				//Do engine power all
+				return new CommandDoEnginePowerAll(actionSet, command);
 			case 22:
-				//do engine power single
-				return new CommandDefault(actionSet, command);
+				//Do engine power single
+				return new CommandDoEnginePowerSingle(actionSet, command);
 			case 23:
-				//do gear
-				return new CommandDefault(actionSet, command);
+				//Do gear
+				return new CommandDoGear(actionSet, command);
 			case 24:
-				//halt
-				return new CommandDefault(actionSet, command);
+				//Halt
+				return new CommandHalt(actionSet, command);
 			case 25:
 				//@clock <rate>
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscClockRate(actionSet, command);
 			case 26:
 				//@clock <optn>
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscClockState(actionSet, command);
 			case 27:
 				//@clock
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscClock(actionSet, command);
 			case 28:
 				//@run file
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscRunFile(actionSet, command);
 			case 29:
 				//@exit
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscExit(actionSet, command);
 			case 30:
 				//@wait
-				return new CommandDefault(actionSet, command);
+				return new CommandMiscWait(actionSet, command);
 			default:
 				throw new ParseException("Value out of bounds", -1);
 
