@@ -57,7 +57,8 @@ public class CommandChooser {
 			"@CLOCK " + INT,
 			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))",
 			"@CLOCK",
-			"@RUN \"" + FILENAME + "\"",
+			"@RUN \" + FILENAME + \"",
+			//"@RUN \"" + FILENAME + "\"",
 			"@EXIT",
 			"@WAIT " + INT
 
