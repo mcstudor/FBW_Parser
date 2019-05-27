@@ -13,9 +13,9 @@ public class CommandChooser {
 	private static final String ID = "[a-zA-Z0-9]+";
 	private static final String ID_ONEPLUS = "(" + ID + "\\s?)+";
 	private static final String REAL_NO = "[0-9]+(\\.[0-9]+)?";
-	private static final String FILENAME = "";
+	private static final String FILENAME = "[^\\\\\\t\\n\\r\\f\\'\\\"\\x1B]*";
 	private static final String INT = "[0-9]+";
-	private static final String POS = "[(up)1234]";
+	private static final String POS = "((up)|[1234])";
 	private static final String SPEED_ACC = " SPEED " + REAL_NO + " ACCELERATION " + REAL_NO;
 	private static final String LIM_SPEED_ACC = " WITH LIMIT " + REAL_NO + SPEED_ACC;
 
@@ -43,10 +43,10 @@ public class CommandChooser {
 			"COMMIT",
 
 			//BEHAVIORAL COMMANDS
-			"DO " + ID + " DEFLECT RUDDER " + REAL_NO + "((LEFT)|(RIGHT))",
+			"DO " + ID + " DEFLECT RUDDER " + REAL_NO + " ((LEFT)|(RIGHT))",
 			"DO " + ID + " DEFLECT ELEVATOR " + REAL_NO + " ((UP)|(DOWN))",
 			"DO " + ID + " DEFLECT AILERONS " + REAL_NO + " ((UP)|(DOWN))",
-			"DO " + ID + " SPEED BREAK ((ON)|(OFF))",
+			"DO " + ID + " SPEED BRAKE ((ON)|(OFF))",
 			"DO " + ID + " DEFLECT FLAP " + POS,
 			"DO " + ID + " SET POWER " + REAL_NO,
 			"DO " + ID + " SET POWER " + REAL_NO + " ENGINE " + ID,
@@ -57,8 +57,8 @@ public class CommandChooser {
 			"@CLOCK " + INT,
 			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))",
 			"@CLOCK",
-			"@RUN \" + FILENAME + \"",
-			//"@RUN \"" + FILENAME + "\"",
+			//@RUN throwing exception for running file
+			"@RUN \"" + FILENAME + "\"",
 			"@EXIT",
 			"@WAIT " + INT
 
