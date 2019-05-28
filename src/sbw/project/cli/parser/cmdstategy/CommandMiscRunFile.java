@@ -14,11 +14,20 @@ public class CommandMiscRunFile extends CommandChoice {
 
 	@Override
 	public void runCommand() throws ParseException {
-		System.out.println(this.command);
-		
+
+		// strip quotes
+		this.command = this.command.replace("\"", "");
 		String[] arr = this.command.split(" ");
-		ActionMiscellaneous am = this.actionSet.getActionMiscellaneous();
-		CommandDoRunCommandFile cd = new CommandDoRunCommandFile(arr[1]);
-		am.submitCommand(cd);
+
+		if (arr.length == 2) {
+			ActionMiscellaneous am = this.actionSet.getActionMiscellaneous();
+			CommandDoRunCommandFile cd = new CommandDoRunCommandFile(arr[1]);
+			am.submitCommand(cd);
+		} else {
+			ActionMiscellaneous am = this.actionSet.getActionMiscellaneous();
+			CommandDoRunCommandFile cd = new CommandDoRunCommandFile(this.command.substring(5));
+			am.submitCommand(cd);
+		}
+
 	}
 }
