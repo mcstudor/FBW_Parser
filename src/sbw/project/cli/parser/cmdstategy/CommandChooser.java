@@ -58,7 +58,8 @@ public class CommandChooser {
 			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))",
 			"@CLOCK",
 			//@RUN throwing exception for running file
-			"@RUN \"" + FILENAME + "\"",
+			//"@RUN \"" + FILENAME + "\"",
+			"@RUN " + FILENAME,
 			"@EXIT",
 			"@WAIT " + INT
 

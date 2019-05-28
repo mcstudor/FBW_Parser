@@ -38,17 +38,22 @@ public class Validate {
 	
 	static Percent makePercent(String s) {
 		// a real in percent [0,100]
-		Double d = Double.parseDouble(s);
-		Percent p = new Percent(d);
-		return p;
-		
+
+		if (isValidRealPercent(s)) {
+			double d = Double.parseDouble(s);
+			Percent p = new Percent(d);
+			return p;
+		} else {
+			System.out.println("makePower format incorrect");
+		}
+		return null;
 	}
 	
 	static Position makePosition(String s) {
 		// a closed set of flap positions [up,1,2,3,4]
-		
+
 		if (isValidFlapPosition(s)) {
-			E_Position i = null; // verify E_Position is in enum - TODO
+			Position.E_Position i  = Position.E_Position.valueOf(s);
 			Position p = new Position(i);
 			return p;
 		} else {
@@ -58,7 +63,6 @@ public class Validate {
 	}
 	
 
-
 	static Power makePower(String s) {
 		// a real in percent [0,100]
 		// validate range of double and that s is a double
@@ -67,9 +71,8 @@ public class Validate {
 			Power p = new Power(d);
 			return p;
 		} else {
-			System.out.println("makePower format incorrect");
+			throw new NumberFormatException("makePower format incorrect");
 		}
-		return null;
 
 	}
 
@@ -81,17 +84,22 @@ public class Validate {
 			Rate r = new Rate(i);
 			return r;
 		} else {
-			System.out.println("Command format incorrect");
+			throw new NumberFormatException("Command format incorrect");
 		}
-		return null;
+
 	}
-	
+
 	static Speed makeSpeed(String s) {
 		// a positive real in appropriate units per clock tick
-		// validate that d is a positive real - TODO
-		double d = Double.parseDouble(s);
-		Speed speed = new Speed(d);
-		return speed;
+
+		if (isPositiveReal(s)) {
+			double d = Double.parseDouble(s);
+			Speed speed = new Speed(d);
+			return speed;
+		} else {
+			throw new NumberFormatException("makeSpeed: not a positive real");
+		}
+
 	}
 	
 	
@@ -121,14 +129,47 @@ public class Validate {
 		else return false;
 		
 	}
+
+	static boolean isPositiveReal(String s) {
+
+		try {
+			double d = Double.parseDouble(s);
+			if (d > 0) {
+				return true;
+			} else {
+				throw new NumberFormatException("Error in isPositiveReal - not a positive real");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Error in isPositiveReal - not a positive real");
+			return false;
+		}
+
+	}
 	
 	static boolean isValidRealPercent(String s) {
-		// TODO Auto-generated method stub
-		return false;
+
+		try {
+			double d = Double.parseDouble(s);
+			if ((d >= 0) && (d <= 100)) {
+				return true;
+			} else {
+				throw new NumberFormatException("Error in isValidRealPercent - not a valid real percent.");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Error in isValidRealPercent - not a valid real percent.");
+			return false;
+		}
+
 	}
 	
 	static boolean isValidFlapPosition(String s) {
-		// TODO Auto-generated method stub
+
+		for (Position.E_Position p : Position.E_Position.values()) {
+			if (p.name().equals(s)) {
+				return true;
+			}
+		}
+
 		return false;
 	}
 }
