@@ -49,7 +49,7 @@ DO ec1 SET POWER 50
 DO ec1 SET POWER 50 ENGINE e01
 DO gc1 GEAR UP
 DO gc1 GEAR DOWN
-//HALT ec1
+HALT ec1
 //bad form behavioral
 //good form misc
 @CLOCK 5
