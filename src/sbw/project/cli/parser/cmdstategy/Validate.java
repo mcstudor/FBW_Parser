@@ -15,17 +15,30 @@ public class Validate {
 	
 	static Acceleration makeAcceleration(String s) {
 		// a nonnegative real in appropriate units per clock tick
-		// verify s is a nonnegative real - TODO 
-		double d = Double.parseDouble(s);
-		Acceleration a = new Acceleration(d);
-		return a;	
+		// verify s is a nonnegative real
+
+		if (isNonNegativeReal(s)) {
+			double d = Double.parseDouble(s);
+			Acceleration a = new Acceleration(d);
+			return a;
+		} else {
+			throw new NumberFormatException("makePower format incorrect");
+		}
+
+
 	}
-	
+
+
 	static Angle makeAngle(String s) {
 		// a nonnegative real in degrees
-		double d = Double.parseDouble(s);
-		Angle a = new Angle(d);
-		return a;
+		if (isNonNegativeRealDegrees(s)) {
+			double d = Double.parseDouble(s);
+			Angle a = new Angle(d);
+			return a;
+		} else {
+			throw new NumberFormatException("makePower format incorrect");
+		}
+
 	}
 	
 	static Identifier makeIdentifier(String s) {
@@ -121,12 +134,17 @@ public class Validate {
 		
 		try {
 			num = Integer.parseInt(s);
+			if (num > 0) return true;
+			else {
+				throw new NumberFormatException("Error in isPositiveInteger - not a positive integer");
+			}
 		} catch (NumberFormatException e) {
+			System.out.println("Error in isPositiveInteger - not a positive integer");
 			return false;
 		}
 		
-		if (num > 0) return true;
-		else return false;
+
+
 		
 	}
 
@@ -145,6 +163,37 @@ public class Validate {
 		}
 
 	}
+
+	private static boolean isNonNegativeReal(String s) {
+
+		try {
+			double d = Double.parseDouble(s);
+			if (d >= 0) {
+				return true;
+			} else {
+				throw new NumberFormatException("Error in isNonNegativeReal - not a nonnegative real");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Error in isNonNegativeReal - not a nonnegative real");
+			return false;
+		}
+	}
+
+	private static boolean isNonNegativeRealDegrees(String s) {
+
+		try {
+			double d = Double.parseDouble(s);
+			if ((d >= 0) && (d <= 360)) {
+				return true;
+			} else {
+				throw new NumberFormatException("Error in isNonNegativeRealDegrees - not a nonnegative real in degrees");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Error in isNonNegativeRealDegrees - not a nonnegative real in degrees");
+			return false;
+		}
+	}
+
 	
 	static boolean isValidRealPercent(String s) {
 
@@ -169,7 +218,7 @@ public class Validate {
 				return true;
 			}
 		}
-
+		System.out.println("Error in isValidFlapPosition - not a valid position.");
 		return false;
 	}
 }
