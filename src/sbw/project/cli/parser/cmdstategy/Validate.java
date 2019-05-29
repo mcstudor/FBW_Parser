@@ -10,6 +10,8 @@ import sbw.architecture.datatype.Rate;
 import sbw.architecture.datatype.Speed;
 import sbw.architecture.datatype.Position.E_Position;
 
+import java.text.ParseException;
+
 public class Validate {
 	
 	
@@ -22,7 +24,7 @@ public class Validate {
 			Acceleration a = new Acceleration(d);
 			return a;
 		} else {
-			throw new NumberFormatException("makePower format incorrect");
+			throw new NumberFormatException("makeAcceleration format incorrect");
 		}
 
 
@@ -36,7 +38,7 @@ public class Validate {
 			Angle a = new Angle(d);
 			return a;
 		} else {
-			throw new NumberFormatException("makePower format incorrect");
+			throw new NumberFormatException("makeAngle format incorrect");
 		}
 
 	}
@@ -57,22 +59,37 @@ public class Validate {
 			Percent p = new Percent(d);
 			return p;
 		} else {
-			System.out.println("makePower format incorrect");
+			System.out.println("makePercent format incorrect");
 		}
 		return null;
 	}
 	
 	static Position makePosition(String s) {
-		// a closed set of flap positions [up,1,2,3,4]
-
+		// a closed set of flap positions [up,1,2,3,4] UP, ONE, etc
 		if (isValidFlapPosition(s)) {
-			Position.E_Position i  = Position.E_Position.valueOf(s);
+
+			Position.E_Position i = null;
+			
+			if (s.equals("UP")) {
+				i  = E_Position.UP;
+			} else if (s.equals("1")) {
+				i = E_Position.ONE;
+			} else if (s.equals("2")) {
+				i = E_Position.TWO;
+			} else if (s.equals("3")) {
+				i = E_Position.THREE;
+			} else if (s.equals("4")) {
+				i = E_Position.FOUR;
+			} else {
+				throw new NumberFormatException("makePosition: Invalid Flap position.");
+			}
+
 			Position p = new Position(i);
 			return p;
 		} else {
-			System.out.println("makePosition format incorrect");
+			throw new NumberFormatException("makePosition: Invalid Flap position.");
 		}
-		return null;
+
 	}
 	
 
@@ -97,7 +114,7 @@ public class Validate {
 			Rate r = new Rate(i);
 			return r;
 		} else {
-			throw new NumberFormatException("Command format incorrect");
+			throw new NumberFormatException("makeRate format incorrect");
 		}
 
 	}
@@ -212,9 +229,14 @@ public class Validate {
 	}
 	
 	static boolean isValidFlapPosition(String s) {
-
+		// UP, 1, 2, 3, 4 - 0, 1, 2, 3, 4 ordinals
+		int num;
+		if (s.equals("UP")) num = 0;
+		else num = Integer.parseInt(s);
 		for (Position.E_Position p : Position.E_Position.values()) {
-			if (p.name().equals(s)) {
+			//System.out.println("valid position: " + p.ordinal());
+
+			if (p.ordinal() == num) {
 				return true;
 			}
 		}
