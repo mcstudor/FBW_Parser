@@ -2,12 +2,10 @@ package sbw.project.cli.parser.cmdstategy;
 
 import sbw.architecture.datatype.*;
 import sbw.project.cli.action.ActionSet;
-
 import java.text.ParseException;
 
-public class CommandCreateRudder extends CommandChoice {
-
-	CommandCreateRudder(ActionSet actionSet, String command) {
+public class CommandCreateEngine extends CommandChoice {
+	CommandCreateEngine(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 
@@ -16,11 +14,9 @@ public class CommandCreateRudder extends CommandChoice {
 		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier id = Validate.makeIdentifier(args[2]);
-		Angle angle = Validate.makeAngle(args[5]);
-		Speed speed = Validate.makeSpeed(args[7]);
-		Acceleration acc = Validate.makeAcceleration(args[9]);
+		Speed speed = Validate.makeSpeed(args[5]);
+		Acceleration acc = Validate.makeAcceleration(args[7]);
 
-		this.actionSet.getActionCreational().doCreateRudder(id, angle, speed, acc);
+		this.actionSet.getActionCreational().doCreateEngine(id, speed, acc);
 	}
-
 }
