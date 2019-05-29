@@ -81,9 +81,7 @@ public class CommandChooser {
 		}
 	}
 
-
 	public CommandChoice chooseCommand(String command) throws ParseException {
-		CommandChoice choice = null;
 		//checks each pattern to find out if the command matches it.
 		//if found, the number of the command's position (which is static) is passed to the get command;
 		//if the command does not, throw exception
@@ -93,36 +91,35 @@ public class CommandChooser {
 				return getCommand(i, command);
 			}
 		}
-		if(choice==null)
 			throw new ParseException("String did not match pattern", -1);
-		//this should be unreachable, but compiler doesn't like that.
-		return choice;
 	}
 
 	private CommandChoice getCommand(int i, String command) throws ParseException {
 		switch (i){
 			case 0:
+				//Create Rudder
 				return new CommandCreateRudder(actionSet, command);
 			case 1:
+				//Create Elevator
 				return new CommandCreateElevator(actionSet, command);
 			case 2:
 				//Create aileron
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateAileron(actionSet, command);
 			case 3:
 				//Create split flap
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateSplitFlap(actionSet, command);
 			case 4:
 				//Create fowler flap
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateFowlerFlap(actionSet, command);
 			case 5:
 				//Create engine
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateEngine(actionSet, command);
 			case 6:
 				//Create nose gear
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateNoseGear(actionSet, command);
 			case 7:
 				//Create main gear
-				return new CommandDefault(actionSet, command);
+				return new CommandCreateMainGear(actionSet, command);
 			case 8:
 				//Declare rudder controller
 				return new CommandDeclareRudderController(actionSet, command);
