@@ -24,7 +24,7 @@ public class Validate {
 			Acceleration a = new Acceleration(d);
 			return a;
 		} else {
-			throw new NumberFormatException("makeAcceleration format incorrect");
+			throw new RuntimeException("Validate.makeAcceleration: incorrect format");
 		}
 
 
@@ -33,23 +33,30 @@ public class Validate {
 
 	static Angle makeAngle(String s) {
 		// a nonnegative real in degrees
+
 		if (isNonNegativeRealDegrees(s)) {
 			double d = Double.parseDouble(s);
 			Angle a = new Angle(d);
 			return a;
 		} else {
-			throw new NumberFormatException("makeAngle format incorrect");
+			throw new RuntimeException("Validate.makeAngle: incorrect format");
 		}
 
 	}
+
 	
 	static Identifier makeIdentifier(String s) {
 		// an arbitrary alphanumeric identifier
-		// validate that string is a proper Java variable - TODO
-		Identifier i = new Identifier(s);
-		return i;
-		
+		// validate that string is a proper Java variable
+
+		if (Character.isDigit(s.charAt(0)) || (s.charAt(0) == '$')) {
+			throw new RuntimeException("Validate.makeIdentifier: incorrect format");
+		} else {
+			Identifier i = new Identifier(s);
+			return i;
+		}
 	}
+
 	
 	static Percent makePercent(String s) {
 		// a real in percent [0,100]
@@ -59,10 +66,10 @@ public class Validate {
 			Percent p = new Percent(d);
 			return p;
 		} else {
-			System.out.println("makePercent format incorrect");
+			throw new RuntimeException("Validate.makePercent incorrect format");
 		}
-		return null;
 	}
+
 	
 	static Position makePosition(String s) {
 		// a closed set of flap positions [up,1,2,3,4] UP, ONE, etc
@@ -81,13 +88,13 @@ public class Validate {
 			} else if (s.equals("4")) {
 				i = E_Position.FOUR;
 			} else {
-				throw new NumberFormatException("makePosition: Invalid Flap position.");
+				throw new RuntimeException("Validate.makePosition: Invalid Flap position.");
 			}
 
 			Position p = new Position(i);
 			return p;
 		} else {
-			throw new NumberFormatException("makePosition: Invalid Flap position.");
+			throw new RuntimeException("Validate.makePosition: Invalid Flap position.");
 		}
 
 	}
@@ -96,15 +103,17 @@ public class Validate {
 	static Power makePower(String s) {
 		// a real in percent [0,100]
 		// validate range of double and that s is a double
+
 		if (isValidRealPercent(s)) {
 			double d = Double.parseDouble(s);
 			Power p = new Power(d);
 			return p;
 		} else {
-			throw new NumberFormatException("makePower format incorrect");
+			throw new RuntimeException("Validate.makePower incorrect format");
 		}
 
 	}
+
 
 	static Rate makeRate(String s) {
 		// a positive integer clock rate
@@ -114,10 +123,11 @@ public class Validate {
 			Rate r = new Rate(i);
 			return r;
 		} else {
-			throw new NumberFormatException("makeRate format incorrect");
+			throw new RuntimeException("Validate.makeRate incorrect format");
 		}
 
 	}
+
 
 	static Speed makeSpeed(String s) {
 		// a positive real in appropriate units per clock tick
@@ -127,24 +137,25 @@ public class Validate {
 			Speed speed = new Speed(d);
 			return speed;
 		} else {
-			throw new NumberFormatException("makeSpeed: not a positive real");
+			throw new RuntimeException("Validate.makeSpeed: incorrect format");
 		}
 
 	}
-	
-	
+
+
 	static boolean isInteger(String s) {
 		
 		try {
 			int num = Integer.parseInt(s);
-		} catch (NumberFormatException e) {
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isInteger - not an integer");
 		}
 		
 		return true;
 
 	}
-	
+
+
 	static boolean isPositiveInteger(String s) {
 		
 		int num;
@@ -153,17 +164,14 @@ public class Validate {
 			num = Integer.parseInt(s);
 			if (num > 0) return true;
 			else {
-				throw new NumberFormatException("Error in isPositiveInteger - not a positive integer");
+				throw new RuntimeException("Validate.isPositiveInteger - not a positive integer");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Error in isPositiveInteger - not a positive integer");
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isPositiveInteger - not a positive integer");
 		}
-		
 
-
-		
 	}
+
 
 	static boolean isPositiveReal(String s) {
 
@@ -172,14 +180,14 @@ public class Validate {
 			if (d > 0) {
 				return true;
 			} else {
-				throw new NumberFormatException("Error in isPositiveReal - not a positive real");
+				throw new RuntimeException("Validate.isPositiveReal - not a positive real");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Error in isPositiveReal - not a positive real");
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isPositiveReal - not a positive real");
 		}
 
 	}
+
 
 	private static boolean isNonNegativeReal(String s) {
 
@@ -188,13 +196,13 @@ public class Validate {
 			if (d >= 0) {
 				return true;
 			} else {
-				throw new NumberFormatException("Error in isNonNegativeReal - not a nonnegative real");
+				throw new RuntimeException("Validate.isNonNegativeReal - not a nonnegative real");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Error in isNonNegativeReal - not a nonnegative real");
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isNonNegativeReal - not a nonnegative real");
 		}
 	}
+
 
 	private static boolean isNonNegativeRealDegrees(String s) {
 
@@ -203,11 +211,10 @@ public class Validate {
 			if ((d >= 0) && (d <= 360)) {
 				return true;
 			} else {
-				throw new NumberFormatException("Error in isNonNegativeRealDegrees - not a nonnegative real in degrees");
+				throw new RuntimeException("Validate.isNonNegativeRealDegrees - not a nonnegative real in degrees");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Error in isNonNegativeRealDegrees - not a nonnegative real in degrees");
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isNonNegativeRealDegrees - not a nonnegative real in degrees");
 		}
 	}
 
@@ -219,28 +226,30 @@ public class Validate {
 			if ((d >= 0) && (d <= 100)) {
 				return true;
 			} else {
-				throw new NumberFormatException("Error in isValidRealPercent - not a valid real percent.");
+				throw new RuntimeException("Validate.isValidRealPercent - not a valid real percent.");
 			}
-		} catch (NumberFormatException e) {
-			System.out.println("Error in isValidRealPercent - not a valid real percent.");
-			return false;
+		} catch (RuntimeException e) {
+			throw new RuntimeException("Validate.isValidRealPercent - not a valid real percent.");
 		}
 
 	}
+
 	
 	static boolean isValidFlapPosition(String s) {
 		// UP, 1, 2, 3, 4 - 0, 1, 2, 3, 4 ordinals
+
 		int num;
 		if (s.equals("UP")) num = 0;
 		else num = Integer.parseInt(s);
+
 		for (Position.E_Position p : Position.E_Position.values()) {
-			//System.out.println("valid position: " + p.ordinal());
 
 			if (p.ordinal() == num) {
 				return true;
 			}
 		}
-		System.out.println("Error in isValidFlapPosition - not a valid position.");
-		return false;
+
+		throw new RuntimeException("Validate.isValidFlapPosition - not a valid position");
 	}
+
 }
