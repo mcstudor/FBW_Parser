@@ -14,7 +14,7 @@ public class CommandDoElevator extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> DEFLECT ELEVATOR <angle> UP|DOWN
 		System.out.println(this.command);
 

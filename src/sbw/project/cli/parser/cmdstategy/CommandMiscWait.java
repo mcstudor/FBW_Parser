@@ -14,7 +14,7 @@ public class CommandMiscWait extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		System.out.println(this.command);
 		
 		String[] arr = this.command.split(" ");

@@ -14,7 +14,7 @@ public class CommandDoGear extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> GEAR UP|DOWN
 		System.out.println(this.command);
 

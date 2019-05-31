@@ -1,5 +1,7 @@
 //test case sensitive
 create rudder r55 with limit 45 speed 5 acceleration 1
+create rudder 653dgd with limit 45 speed 5 acceleration 1
+create rudder dgd__53f with limit 45 speed 5 acceleration 1
 //good form creational
 CREATE RUDDER r01 WITH LIMIT 45 SPEED 5 ACCELERATION 1
 CREATE RUDDER r02 WITH LIMIT 45 SPEED 5 ACCELERATION 1

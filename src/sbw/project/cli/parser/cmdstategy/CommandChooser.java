@@ -10,7 +10,7 @@ public class CommandChooser {
 	private ArrayList<Pattern> patterns;
 	//The string regex that needs to be complied into a pattern
 
-	private static final String ID = "[a-zA-Z0-9]+";
+	private static final String ID = "[a-zA-Z][a-zA-Z0-9_]+";
 	private static final String ID_ONEPLUS = "(" + ID + "\\s?)+";
 	private static final String REAL_NO = "[0-9]+(\\.[0-9]+)?";
 	private static final String FILENAME = "[^\\\\\\t\\n\\r\\f\\'\\\"\\x1B]*";
@@ -81,7 +81,7 @@ public class CommandChooser {
 		}
 	}
 
-	public CommandChoice chooseCommand(String command) throws ParseException {
+	public CommandChoice chooseCommand(String command) throws RuntimeException {
 		//checks each pattern to find out if the command matches it.
 		//if found, the number of the command's position (which is static) is passed to the get command;
 		//if the command does not, throw exception
@@ -91,10 +91,10 @@ public class CommandChooser {
 				return getCommand(i, command);
 			}
 		}
-			throw new ParseException("String did not match pattern", -1);
+			throw new RuntimeException("String did not match pattern");
 	}
 
-	private CommandChoice getCommand(int i, String command) throws ParseException {
+	private CommandChoice getCommand(int i, String command) throws RuntimeException {
 		switch (i){
 			case 0:
 				//Create Rudder
@@ -190,7 +190,7 @@ public class CommandChooser {
 				//@wait
 				return new CommandMiscWait(actionSet, command);
 			default:
-				throw new ParseException("Value out of bounds", -1);
+				throw new RuntimeException("Value out of bounds");
 
 		}
 

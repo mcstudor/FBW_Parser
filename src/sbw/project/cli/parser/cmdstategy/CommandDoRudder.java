@@ -15,7 +15,7 @@ public class CommandDoRudder extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> DEFLECT RUDDER <angle> LEFT|RIGHT
 		System.out.println(this.command);
 

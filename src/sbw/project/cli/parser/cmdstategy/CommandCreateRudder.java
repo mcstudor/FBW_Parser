@@ -12,7 +12,7 @@ public class CommandCreateRudder extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier id = Validate.makeIdentifier(args[2]);

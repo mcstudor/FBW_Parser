@@ -15,7 +15,7 @@ public class CommandDoAilerons extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> DEFLECT AILERONS <angle> UP|DOWN
 		System.out.println(this.command);
 

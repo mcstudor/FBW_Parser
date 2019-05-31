@@ -13,7 +13,7 @@ public class CommandMiscRunFile extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 
 		// strip quotes
 		this.command = this.command.replace("\"", "");

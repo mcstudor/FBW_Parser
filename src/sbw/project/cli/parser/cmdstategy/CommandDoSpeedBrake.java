@@ -15,7 +15,7 @@ public class CommandDoSpeedBrake extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> SPEED BRAKE ON|OFF
 		System.out.println(this.command);
 

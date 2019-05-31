@@ -15,7 +15,7 @@ public class CommandDoFlap extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> DEFLECT FLAP <position>
 		System.out.println(this.command);
 

@@ -14,7 +14,7 @@ public class CommandHalt extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		System.out.println(this.command); // HALT <id>
 		
 		String[] arr = this.command.split(" ");

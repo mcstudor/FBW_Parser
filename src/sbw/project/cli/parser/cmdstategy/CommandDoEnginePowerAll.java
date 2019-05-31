@@ -14,7 +14,7 @@ public class CommandDoEnginePowerAll extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		// DO <id> SET POWER <power>
 		System.out.println(this.command);
 

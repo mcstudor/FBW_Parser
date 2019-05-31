@@ -12,7 +12,7 @@ public class CommandCommit extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException{
 		System.out.println(this.command);
 		
 		ActionStructural as = this.actionSet.getActionStructural();

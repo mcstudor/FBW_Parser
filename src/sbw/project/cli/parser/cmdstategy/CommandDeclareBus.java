@@ -13,7 +13,7 @@ public class CommandDeclareBus extends CommandChoice {
 	}
 
 	@Override
-	public void runCommand() throws ParseException {
+	public void runCommand() throws RuntimeException {
 		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier busID = Validate.makeIdentifier(args[2]);

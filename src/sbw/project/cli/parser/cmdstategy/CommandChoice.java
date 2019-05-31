@@ -13,5 +13,5 @@ public abstract class CommandChoice {
 		this.command = command;
 	}
 	//put the magic here
-	public abstract void runCommand() throws ParseException;
+	public abstract void runCommand() throws RuntimeException;
 }
