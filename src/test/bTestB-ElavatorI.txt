@@ -1,0 +1,5 @@
+// B. Elevator I
+// 1. Deflect elevator_controller1 up full.
+// 2. Deflect elevator_controller1 down full.
+DO elevator_controller1 DEFLECT ELEVATOR 30 UP
+DO elevator_controller1 DEFLECT ELEVATOR 30 DOWN

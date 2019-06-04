@@ -1,0 +1,5 @@
+// K. Flap II
+// 1. Deflect flap_controller2 position 3.
+// 2. Deflect flap_controller2 position up.
+DO flap_controller2 DEFLECT FLAP 3
+DO flap_controller2 DEFLECT FLAP UP

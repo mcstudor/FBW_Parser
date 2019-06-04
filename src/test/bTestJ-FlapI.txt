@@ -1,0 +1,7 @@
+// J. Flap I
+// 1. Deflect flap_controller4 position 4.
+// 2. Deflect flap_controller4 position 3.
+// 3. Deflect flap_controller4 position up.
+DO flap_controller4 DEFLECT FLAP 4
+DO flap_controller4 DEFLECT FLAP 3
+DO flap_controller4 DEFLECT FLAP UP

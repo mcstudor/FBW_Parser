@@ -1,0 +1,7 @@
+// M. Engine
+// 1. Set engine_controller3 all engines to 70% power.
+// 2. Set engine_controller3 only engine2 to 40% power.
+// 3. Set engine_controller3 to 100% power.
+DO engine_controller3 SET POWER 70
+DO engine_controller3 SET POWER 40 ENGINE engine2
+DO engine_controller3 SET POWER 100

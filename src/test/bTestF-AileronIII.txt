@@ -1,0 +1,5 @@
+// F. Aileron III
+// 1. Deflect aileron_controller4 up 45.
+// 2. Deflect aileron_controller4 down 30.
+DO aileron_controller4 DEFLECT AILERONS 45 UP
+DO aileron_controller4 DEFLECT AILERONS 30 DOWN
