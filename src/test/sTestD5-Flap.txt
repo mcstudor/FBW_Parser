@@ -1,0 +1,6 @@
+// D. Flap
+// 5. Declare an invalid flap controller flap_controller5 with flap_fowler1 and flap_split2 inboard and
+// flap_split1  and flap_fowler2 outboard.
+@RUN "src/test/creationTests.txt"
+//DECLARE FLAP CONTROLLER flap_controller5 WITH FLAPS flap_split1 flap_fowler1 flap_split2 flap_fowler2
+DECLARE FLAP CONTROLLER flap_controller5 WITH FLAPS flap_fowler1 flap_fowler2 flap_split1 flap_split2

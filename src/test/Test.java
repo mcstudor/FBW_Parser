@@ -9,8 +9,9 @@ import java.util.Scanner;
 public class Test {
 
 	public static void main(String[] args ) throws FileNotFoundException {
-		File file = new File("src/test/cmds.txt");
+		//File file = new File("src/test/cmds.txt");
 		//File file = new File("src/test/csTests.txt");
+		File file = new File("src/test/testing.txt");
 
 		CommandLineInterface cli = new CommandLineInterface();
 

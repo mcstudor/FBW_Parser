@@ -1,0 +1,4 @@
+// E. Engine
+// 3. Declare an engine controller engine_controller3 with engine1, engine2, and engine3.
+@RUN "src/test/creationTests.txt"
+DECLARE ENGINE CONTROLLER engine_controller3 WITH ENGINES engine1 engine2 engine3

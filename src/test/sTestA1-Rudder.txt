@@ -1,0 +1,4 @@
+// A. Rudder
+// 1. Declare a rudder controller rudder_controller1 with rudder1.
+@RUN "src/test/creationTests.txt"
+DECLARE RUDDER CONTROLLER rudder_controller1 WITH RUDDER rudder1

@@ -68,6 +68,5 @@ HALT ec1
 @CLOCK UPDATE
 @CLOCK
 @RUN "src/test/testFile.txt"
-@RUN "src/test/test File.txt"
 @EXIT
 @WAIT 30

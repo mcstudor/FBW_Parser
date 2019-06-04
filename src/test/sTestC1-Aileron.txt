@@ -1,0 +1,4 @@
+// C. Aileron
+// 1. Declare an aileron controller aileron_controller1 with ailerons aileron1 (primary) and aileron2.
+@RUN "src/test/creationTests.txt"
+DECLARE AILERON CONTROLLER aileron_controller1 WITH AILERONS aileron1 aileron2 PRIMARY aileron1

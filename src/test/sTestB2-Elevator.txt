@@ -1,0 +1,4 @@
+// B. Elevator
+// 2. Declare an invalid elevator controller elevator_controller2 with elevator1 and elevator3.
+@RUN "src/test/creationTests.txt"
+DECLARE ELEVATOR CONTROLLER elevator_controller2 WITH ELEVATORS elevator1 elevator3

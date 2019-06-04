@@ -1,0 +1,4 @@
+// C. Aileron
+// 5. Declare an invalid (?) aileron controller aileron_controller5 with ailerons aileron1 and aileron2 (
+@RUN "src/test/creationTests.txt"
+DECLARE AILERON CONTROLLER aileron_controller5 WITH AILERONS aileron1 aileron2 PRIMARY aileron2

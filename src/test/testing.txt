@@ -1,0 +1,21 @@
+//@RUN "src/test/sTestA1-Rudder.txt"
+//@RUN "src/test/sTestB1-Elevator.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestB2-Elevator.txt"
+//@RUN "src/test/sTestC1-Aileron.txt"
+//@RUN "src/test/sTestC2-Aileron.txt"
+//@RUN "src/test/sTestC3-Aileron.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestC5-Aileron.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestC6-Aileron.txt"
+//@RUN "src/test/sTestD1-Flap.txt"
+//@RUN "src/test/sTestD2-Flap.txt"
+//@RUN "src/test/sTestD4-Flap.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestD5-Flap.txt"
+//@RUN "src/test/sTestE1-Engine.txt"
+//@RUN "src/test/sTestE2-Engine.txt"
+//@RUN "src/test/sTestE3-Engine.txt"
+//@RUN "src/test/sTestF1-Gear.txt"
+

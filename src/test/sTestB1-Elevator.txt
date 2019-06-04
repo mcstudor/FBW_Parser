@@ -1,0 +1,4 @@
+// B. Elevator
+// 1. Declare an elevator controller elevator_controller1 with elevator1 and elevator2.
+@RUN "src/test/creationTests.txt"
+DECLARE ELEVATOR CONTROLLER elevator_controller1 WITH ELEVATORS elevator1 elevator2
