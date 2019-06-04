@@ -10,6 +10,8 @@ public class Test {
 
 	public static void main(String[] args ) throws FileNotFoundException {
 		File file = new File("src/test/cmds.txt");
+		//File file = new File("src/test/csTests.txt");
+
 		CommandLineInterface cli = new CommandLineInterface();
 
 		Scanner sc = new Scanner(file);
