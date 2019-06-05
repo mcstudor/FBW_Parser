@@ -12,8 +12,9 @@ public class CommandChooser {
 
 	private static final String ID = "[a-zA-Z][a-zA-Z0-9_]+";
 	private static final String ID_ONEPLUS = "(" + ID + "\\s?)+";
+	private static final String ID_EVENNO = "((" + ID + "\\s?){2})+";
 	private static final String REAL_NO = "[0-9]+(\\.[0-9]+)?";
-	private static final String FILENAME = "[^\\\\\\t\\n\\r\\f\\'\\\"\\x1B]*";
+	private static final String FILENAME = "[^\\\\\\t\\n\\r\\f\\'\\\"\\x1B]+";
 	private static final String INT = "[0-9]+";
 	private static final String POS = "((up)|[1234])";
 	private static final String SPEED_ACC = " SPEED " + REAL_NO + " ACCELERATION " + REAL_NO;
@@ -34,9 +35,9 @@ public class CommandChooser {
 			//STRUCTURAL COMMANDS
 			"DECLARE RUDDER CONTROLLER " + ID + " WITH RUDDER " + ID,
 			"DECLARE ELEVATOR CONTROLLER " + ID + " WITH ELEVATORS " + ID + " " + ID,
-			"DECLARE AILERON CONTROLLER " + ID + " WITH AILERONS " + ID_ONEPLUS + " PRIMARY " + ID +
+			"DECLARE AILERON CONTROLLER " + ID + " WITH AILERONS " + ID_EVENNO + " PRIMARY " + ID +
 					"( SLAVE " + ID + " TO " + ID + " BY " + REAL_NO + " PERCENT)*",
-			"DECLARE FLAP CONTROLLER " + ID + " WITH FLAPS " + ID_ONEPLUS,
+			"DECLARE FLAP CONTROLLER " + ID + " WITH FLAPS " + ID_EVENNO,
 			"DECLARE ENGINE CONTROLLER " + ID + " WITH ENGINE[S]? " + ID_ONEPLUS,
 			"DECLARE GEAR CONTROLLER " + ID + " WITH GEAR NOSE " + ID + " MAIN " + ID + " " + ID,
 			"DECLARE BUS " + ID + " WITH CONTROLLER[S]? " + ID_ONEPLUS,
@@ -55,7 +56,7 @@ public class CommandChooser {
 
 			//MISC COMMANDS
 			"@CLOCK " + INT,
-			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))",
+			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))?",
 			"@CLOCK",
 			//@RUN throwing exception for running file
 			"@RUN \"" + FILENAME + "\"",

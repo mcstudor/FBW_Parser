@@ -29,5 +29,6 @@ public class CommandDoRudder extends CommandChoice {
 
 		CommandDoDeflectRudder cd = new CommandDoDeflectRudder(id, a, isRight);
 		ab.submitCommand(cd);
+
 	}
 }
