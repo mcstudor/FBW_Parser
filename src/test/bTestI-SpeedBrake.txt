@@ -1,5 +1,6 @@
 // I. Speed Brake
 // 1. Extend the speed brakes on aileron_controller4.
 // 2. Deflect aileron_controller4 down 0.
+COMMIT
 DO aileron_controller4 SPEED BRAKE ON
 DO aileron_controller4 SPEED BRAKE OFF

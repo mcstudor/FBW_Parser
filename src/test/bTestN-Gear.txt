@@ -1,6 +1,7 @@
 // N. Gear
 // 1. Lower gear_controller1.
 // 2. (a) Raise gear_controller1, but at close to 50% on the main gear, (b) submit a halt.
+COMMIT
 DO gear_controller1 GEAR DOWN
 DO gear_controller1 GEAR UP
 // fill in with wait corresponding to time when near 50%
