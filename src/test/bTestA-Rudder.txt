@@ -8,5 +8,6 @@ DO rudder_controller1 DEFLECT RUDDER 45 LEFT
 DO rudder_controller1 DEFLECT RUDDER 45 RIGHT
 DO rudder_controller1 DEFLECT RUDDER 0 RIGHT
 DO rudder_controller1 DEFLECT RUDDER 30 LEFT
-WAIT XX - time command to do next when close to -15
+// time command to do next when close to -15
+@WAIT 10
 DO rudder_controller1 DEFLECT RUDDER 45 RIGHT

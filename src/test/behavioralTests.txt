@@ -1,0 +1,43 @@
+// possible structural tests to run first
+// each structural test will run all creational commands first
+// COMMIT is run in first line of each behavioral file
+
+//@RUN "src/test/sTestA1-Rudder.txt"
+//@RUN "src/test/sTestB1-Elevator.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestB2-Elevator.txt"
+//@RUN "src/test/sTestC1-Aileron.txt"
+//@RUN "src/test/sTestC2-Aileron.txt"
+//@RUN "src/test/sTestC3-Aileron.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestC5-Aileron.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestC6-Aileron.txt"
+//@RUN "src/test/sTestD1-Flap.txt"
+//@RUN "src/test/sTestD2-Flap.txt"
+//@RUN "src/test/sTestD4-Flap.txt"
+// next line mot showing invalid
+//@RUN "src/test/sTestD5-Flap.txt"
+//@RUN "src/test/sTestE1-Engine.txt"
+//@RUN "src/test/sTestE2-Engine.txt"
+//@RUN "src/test/sTestE3-Engine.txt"
+//@RUN "src/test/sTestF1-Gear.txt"
+
+// behavioral tests - only run one batch each time
+// structural tests needed plus creational included
+// a behavioral test
+
+// running bTestA-Rudder.txt
+//@RUN "src/test/sTestA1-Rudder.txt"
+//DECLARE BUS bs1 WITH CONTROLLER rudder_controller1
+//@RUN "src/test/bTestA-Rudder.txt"
+
+// running bTestB-ElevatorI.txt
+//@RUN "src/test/sTestB1-Elevator.txt"
+//DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
+//@RUN "src/test/bTestB-ElevatorI.txt"
+
+// running bTestC-ElevatorII.txt
+@RUN "src/test/sTestB2-Elevator.txt"
+DECLARE BUS bs1 WITH CONTROLLER elevator_controller2
+@RUN "src/test/bTestC-ElevatorII.txt"

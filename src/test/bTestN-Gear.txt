@@ -3,5 +3,6 @@
 // 2. (a) Raise gear_controller1, but at close to 50% on the main gear, (b) submit a halt.
 DO gear_controller1 GEAR DOWN
 DO gear_controller1 GEAR UP
-***WAIT XX - fill in with wait corresponding to time when near 50%
-HALT
+// fill in with wait corresponding to time when near 50%
+@WAIT 10
+HALT gear_controller1

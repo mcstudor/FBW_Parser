@@ -1,4 +1,4 @@
-//@RUN "src/test/sTestA1-Rudder.txt"
+@RUN "src/test/sTestA1-Rudder.txt"
 //@RUN "src/test/sTestB1-Elevator.txt"
 // next line mot showing invalid
 //@RUN "src/test/sTestB2-Elevator.txt"
@@ -18,4 +18,3 @@
 //@RUN "src/test/sTestE2-Engine.txt"
 //@RUN "src/test/sTestE3-Engine.txt"
 //@RUN "src/test/sTestF1-Gear.txt"
-
