@@ -38,6 +38,17 @@
 //@RUN "src/test/bTestB-ElevatorI.txt"
 
 // running bTestC-ElevatorII.txt
-@RUN "src/test/sTestB2-Elevator.txt"
-DECLARE BUS bs1 WITH CONTROLLER elevator_controller2
-@RUN "src/test/bTestC-ElevatorII.txt"
+//@RUN "src/test/sTestB2-Elevator.txt"
+//DECLARE BUS bs1 WITH CONTROLLER elevator_controller2
+//@RUN "src/test/bTestC-ElevatorII.txt"
+
+
+// running bTestD-AileronI.txt
+@RUN "src/test/sTestC2-Aileron.txt"
+DECLARE BUS bs1 WITH CONTROLLER aileron_controller2
+@RUN "src/test/bTestD-AileronI.txt"
+
+
+//leave here
+@WAIT 50
+@EXIT
