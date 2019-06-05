@@ -1,5 +1,6 @@
 // C. Elevator II
 // 1. Deflect elevator_controller2 up full.
 // 2. Deflect elevator_controller2 down full.
+COMMIT
 DO elevator_controller2 DEFLECT ELEVATOR 30 UP
 DO elevator_controller2 DEFLECT ELEVATOR 30 DOWN

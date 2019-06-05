@@ -1,5 +1,6 @@
 // D. Aileron I
 // 1. Deflect aileron_controller2 up 45.
 // 2. Deflect aileron_controller2 down 30.
+COMMIT
 DO aileron_controller2 DEFLECT AILERONS 45 UP
 DO aileron_controller2 DEFLECT AILERONS 30 DOWN

@@ -1,0 +1,4 @@
+// D. Flap
+// 2. Declare an invalid flap controller flap_controller2 with flap_split1 and flap_split3. 
+@RUN "src/test/creationTests.txt"
+DECLARE FLAP CONTROLLER flap_controller2 WITH FLAPS flap_split1 flap_split3

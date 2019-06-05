@@ -1,0 +1,4 @@
+// D. Flap
+// 1. Declare a flap controller flap_controller1 with flap_split1 and flap_split2.
+@RUN "src/test/creationTests.txt"
+DECLARE FLAP CONTROLLER flap_controller1 WITH FLAPS flap_split1 flap_split2

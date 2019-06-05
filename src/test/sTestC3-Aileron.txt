@@ -1,0 +1,4 @@
+// C. Aileron
+// 3. Declare an aileron controller aileron_controller4 with ailerons aileron1, 3 (primary), 5, 7, then 8, 6, 4, 2, with 7 mixed at 80% of 3, 5 at 50% of 7, and 1 at 75% of 5.
+@RUN "src/test/creationTests.txt"
+DECLARE AILERON CONTROLLER aileron_controller4 WITH AILERONS aileron1 aileron3 aileron5 aileron7 aileron8 aileron6 aileron4 aileron2 PRIMARY aileron3 SLAVE aileron7 TO aileron3 BY 80 PERCENT SLAVE aileron5 TO aileron7 BY 50 PERCENT SLAVE aileron1 TO aileron5 BY 75 PERCENT
