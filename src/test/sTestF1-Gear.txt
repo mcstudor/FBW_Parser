@@ -1,5 +1,5 @@
 // F. Gear
 // 1. Declare a gear controller gear_controller1 with nose gear gear_nose2 and main gear gear_main1 and
-gear_main2.
+//gear_main2.
 @RUN "src/test/creationTests.txt"
 DECLARE GEAR CONTROLLER gear_controller1 WITH GEAR NOSE gear_nose2 MAIN gear_main1 gear_main2
