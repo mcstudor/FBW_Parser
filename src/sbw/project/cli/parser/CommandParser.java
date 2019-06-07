@@ -2,7 +2,7 @@ package sbw.project.cli.parser;
 
 import sbw.project.cli.CommandLineInterface;
 import sbw.project.cli.action.ActionSet;
-import sbw.project.cli.parser.cmdstategy.*;
+import sbw.project.cli.parser.cmdStrategy.*;
 
 import java.text.ParseException;
 
