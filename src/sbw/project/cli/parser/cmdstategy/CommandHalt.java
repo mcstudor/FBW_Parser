@@ -5,17 +5,15 @@ import sbw.project.cli.action.ActionBehavioral;
 import sbw.project.cli.action.ActionSet;
 import sbw.project.cli.action.command.behavioral.CommandDoHalt;
 
-import java.text.ParseException;
-
 public class CommandHalt extends CommandChoice {
 
-	public CommandHalt(ActionSet actionSet, String command) {
+	CommandHalt(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command); // HALT <id>
+		// HALT <id>
 		
 		String[] arr = this.command.split(" ");
 		ActionBehavioral ab = this.actionSet.getActionBehavioral();

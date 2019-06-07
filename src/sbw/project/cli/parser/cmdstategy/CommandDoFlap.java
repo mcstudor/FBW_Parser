@@ -6,18 +6,15 @@ import sbw.project.cli.action.ActionSet;
 import sbw.project.cli.action.command.behavioral.CommandDoSetFlaps;
 import sbw.architecture.datatype.Position;
 
-import java.text.ParseException;
-
 public class CommandDoFlap extends CommandChoice {
 
-	public CommandDoFlap(ActionSet actionSet, String command) {
+	CommandDoFlap(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 
 	@Override
 	public void runCommand() throws RuntimeException {
 		// DO <id> DEFLECT FLAP <position>
-		System.out.println(this.command);
 
 		String[] arr = this.command.split(" ");
 		ActionBehavioral ab = this.actionSet.getActionBehavioral();

@@ -3,7 +3,6 @@ package sbw.project.cli.parser.cmdstategy;
 import sbw.architecture.datatype.Identifier;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class CommandDeclareBus extends CommandChoice {
@@ -14,7 +13,6 @@ public class CommandDeclareBus extends CommandChoice {
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier busID = Validate.makeIdentifier(args[2]);
 		ArrayList<Identifier> controllerIDs = new ArrayList<>();

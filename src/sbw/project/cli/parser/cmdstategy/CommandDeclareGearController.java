@@ -3,9 +3,6 @@ package sbw.project.cli.parser.cmdstategy;
 import sbw.architecture.datatype.Identifier;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
-import java.util.ArrayList;
-
 public class CommandDeclareGearController extends CommandChoice {
 
 	CommandDeclareGearController(ActionSet actionSet, String command) {
@@ -14,7 +11,7 @@ public class CommandDeclareGearController extends CommandChoice {
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
+
 		String[] args = this.command.split(" ");
 		Identifier controllerID = Validate.makeIdentifier(args[3]);
 		Identifier noseGearID = Validate.makeIdentifier(args[7]);

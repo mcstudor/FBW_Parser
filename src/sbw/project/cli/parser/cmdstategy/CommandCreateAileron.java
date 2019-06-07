@@ -3,7 +3,7 @@ package sbw.project.cli.parser.cmdstategy;
 import sbw.architecture.datatype.*;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
+
 
 public class CommandCreateAileron extends CommandChoice{
 
@@ -13,7 +13,6 @@ public class CommandCreateAileron extends CommandChoice{
 
     @Override
     public void runCommand() throws RuntimeException {
-        System.out.println(this.command);
         String[] args = this.command.split(" ");
         Identifier id = Validate.makeIdentifier(args[2]);
         Angle limUp = Validate.makeAngle(args[6]);

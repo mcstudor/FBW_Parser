@@ -1,13 +1,13 @@
 package sbw.project.cli.parser.cmdstategy;
 
 import sbw.project.cli.action.ActionSet;
-import java.text.ParseException;
+
 import java.util.ArrayList;
 import java.util.regex.*;
 
 public class CommandChooser {
 	private ActionSet actionSet;
-	private ArrayList<Pattern> patterns;
+	private final ArrayList<Pattern> patterns;
 	//The string regex that needs to be complied into a pattern
 
 	private static final String ID = "[a-zA-Z][a-zA-Z0-9_]+";
@@ -58,7 +58,6 @@ public class CommandChooser {
 			"@CLOCK " + INT,
 			"@CLOCK ((PAUSE)|(RESUME)|(UPDATE))?",
 			"@CLOCK",
-			//@RUN throwing exception for running file
 			"@RUN \"" + FILENAME + "\"",
 			"@EXIT",
 			"@WAIT " + INT

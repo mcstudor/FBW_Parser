@@ -5,17 +5,14 @@ import sbw.project.cli.action.ActionMiscellaneous;
 import sbw.project.cli.action.ActionSet;
 import sbw.project.cli.action.command.misc.CommandDoWait;
 
-import java.text.ParseException;
-
 public class CommandMiscWait extends CommandChoice {
 
-	public CommandMiscWait(ActionSet actionSet, String command) {
+	CommandMiscWait(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
 		
 		String[] arr = this.command.split(" ");
 		

@@ -5,11 +5,9 @@ import sbw.project.cli.action.ActionBehavioral;
 import sbw.project.cli.action.ActionSet;
 import sbw.project.cli.action.command.behavioral.CommandDoSelectGear;
 
-import java.text.ParseException;
-
 public class CommandDoGear extends CommandChoice {
 
-	public CommandDoGear(ActionSet actionSet, String command) {
+	CommandDoGear(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 
@@ -21,8 +19,11 @@ public class CommandDoGear extends CommandChoice {
 		String[] arr = this.command.split(" ");
 		ActionBehavioral ab = this.actionSet.getActionBehavioral();
 		Identifier id = Validate.makeIdentifier(arr[1]);
-		boolean isDown = true;
+		/*boolean isDown = true;
 		if (arr[3].equals("UP")) isDown = false;
+		 */
+		//Replaced with
+		boolean isDown =!(arr[3].equalsIgnoreCase("UP"));
 		CommandDoSelectGear cd = new CommandDoSelectGear(id, isDown);
 		ab.submitCommand(cd);
 	}

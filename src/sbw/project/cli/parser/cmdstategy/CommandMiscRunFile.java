@@ -4,11 +4,9 @@ import sbw.project.cli.action.ActionMiscellaneous;
 import sbw.project.cli.action.ActionSet;
 import sbw.project.cli.action.command.misc.CommandDoRunCommandFile;
 
-import java.text.ParseException;
-
 public class CommandMiscRunFile extends CommandChoice {
 
-	public CommandMiscRunFile(ActionSet actionSet, String command) {
+	CommandMiscRunFile(ActionSet actionSet, String command) {
 		super(actionSet, command);
 	}
 

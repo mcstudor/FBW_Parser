@@ -3,8 +3,6 @@ package sbw.project.cli.parser.cmdstategy;
 import sbw.architecture.datatype.Identifier;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
-
 public class CommandDeclareElevatorController extends CommandChoice {
 
 	CommandDeclareElevatorController(ActionSet actionSet, String command) {
@@ -13,7 +11,6 @@ public class CommandDeclareElevatorController extends CommandChoice {
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier controllerID = Validate.makeIdentifier(args[3]);
 		Identifier elevatorID1 = Validate.makeIdentifier(args[6]);

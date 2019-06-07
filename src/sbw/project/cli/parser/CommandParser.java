@@ -37,7 +37,7 @@ public class CommandParser {
 
 
 	//this is where the parsing really begins
-	private void singleParse() throws ParseException{
+	private void singleParse() throws RuntimeException{
 		//if the string was only comments, or just empty to start, just return w/o processing.
 		if(command.length()==0)
 			return;

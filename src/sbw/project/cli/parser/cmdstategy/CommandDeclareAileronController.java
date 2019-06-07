@@ -5,7 +5,6 @@ import sbw.architecture.datatype.Identifier;
 import sbw.architecture.datatype.Percent;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 public class CommandDeclareAileronController extends CommandChoice {
@@ -16,7 +15,6 @@ public class CommandDeclareAileronController extends CommandChoice {
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier controllerID = Validate.makeIdentifier(args[3]);
 

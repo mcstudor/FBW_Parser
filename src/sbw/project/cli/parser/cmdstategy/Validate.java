@@ -10,9 +10,7 @@ import sbw.architecture.datatype.Rate;
 import sbw.architecture.datatype.Speed;
 import sbw.architecture.datatype.Position.E_Position;
 
-import java.text.ParseException;
-
-public class Validate {
+class Validate {
 	
 	
 	static Acceleration makeAcceleration(String s) {
@@ -75,20 +73,26 @@ public class Validate {
 		// a closed set of flap positions [up,1,2,3,4] UP, ONE, etc
 		if (isValidFlapPosition(s)) {
 
-			Position.E_Position i = null;
-			
-			if (s.equals("UP")) {
-				i  = E_Position.UP;
-			} else if (s.equals("1")) {
-				i = E_Position.ONE;
-			} else if (s.equals("2")) {
-				i = E_Position.TWO;
-			} else if (s.equals("3")) {
-				i = E_Position.THREE;
-			} else if (s.equals("4")) {
-				i = E_Position.FOUR;
-			} else {
-				throw new RuntimeException("Validate.makePosition: Invalid Flap position.");
+			Position.E_Position i;
+			if(s.equalsIgnoreCase("UP"))
+				i = E_Position.UP;
+			else {
+				switch (s) {
+					case "1":
+						i = E_Position.ONE;
+						break;
+					case "2":
+						i = E_Position.TWO;
+						break;
+					case "3":
+						i = E_Position.THREE;
+						break;
+					case "4":
+						i = E_Position.FOUR;
+						break;
+					default:
+						throw new RuntimeException("Validate.makePosition: Invalid Flap position.");
+				}
 			}
 
 			Position p = new Position(i);
@@ -189,7 +193,7 @@ public class Validate {
 	}
 
 
-	private static boolean isNonNegativeReal(String s) {
+	static boolean isNonNegativeReal(String s) {
 
 		try {
 			double d = Double.parseDouble(s);
@@ -204,7 +208,7 @@ public class Validate {
 	}
 
 
-	private static boolean isNonNegativeRealDegrees(String s) {
+	static boolean isNonNegativeRealDegrees(String s) {
 
 		try {
 			double d = Double.parseDouble(s);
@@ -239,7 +243,7 @@ public class Validate {
 		// UP, 1, 2, 3, 4 - 0, 1, 2, 3, 4 ordinals
 
 		int num;
-		if (s.equals("UP")) num = 0;
+		if (s.equalsIgnoreCase("UP")) num = 0;
 		else num = Integer.parseInt(s);
 
 		for (Position.E_Position p : Position.E_Position.values()) {

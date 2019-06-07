@@ -3,8 +3,6 @@ package sbw.project.cli.parser.cmdstategy;
 import sbw.architecture.datatype.*;
 import sbw.project.cli.action.ActionSet;
 
-import java.text.ParseException;
-
 public class CommandCreateMainGear extends CommandChoice {
 	CommandCreateMainGear(ActionSet actionSet, String command) {
 		super(actionSet, command);
@@ -12,7 +10,6 @@ public class CommandCreateMainGear extends CommandChoice {
 
 	@Override
 	public void runCommand() throws RuntimeException {
-		System.out.println(this.command);
 		String[] args = this.command.split(" ");
 		Identifier id = Validate.makeIdentifier(args[3]);
 		Speed speed = Validate.makeSpeed(args[6]);
