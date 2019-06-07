@@ -28,22 +28,6 @@
 // a behavioral test
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // running bTestA-Rudder.txt
 //@RUN "src/test/sTestA1-Rudder.txt"
 //DECLARE BUS bs1 WITH CONTROLLER rudder_controller1
@@ -51,9 +35,9 @@
 
 
 // running bTestB-ElevatorI.txt
-//@RUN "src/test/sTestB1-Elevator.txt"
-//DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
-//@RUN "src/test/bTestB-ElevatorI.txt"
+@RUN "src/test/sTestB1-Elevator.txt"
+DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
+@RUN "src/test/bTestB-ElevatorI.txt"
 
 
 // running bTestC-ElevatorII.txt
