@@ -5,9 +5,13 @@
 // 4. (a) Deflect rudder_controller1 left 30, but at close to –15 degrees, (b) deflect right full.
 COMMIT
 DO rudder_controller1 DEFLECT RUDDER 45 LEFT
+@WAIT 50
 DO rudder_controller1 DEFLECT RUDDER 45 RIGHT
+@WAIT 50
 DO rudder_controller1 DEFLECT RUDDER 0 RIGHT
+@WAIT 50
 DO rudder_controller1 DEFLECT RUDDER 30 LEFT
 // time command to do next when close to -15
-@WAIT 10
+@WAIT 13
 DO rudder_controller1 DEFLECT RUDDER 45 RIGHT
+@WAIT 20

@@ -27,15 +27,34 @@
 // structural tests needed plus creational included
 // a behavioral test
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // running bTestA-Rudder.txt
 //@RUN "src/test/sTestA1-Rudder.txt"
 //DECLARE BUS bs1 WITH CONTROLLER rudder_controller1
 //@RUN "src/test/bTestA-Rudder.txt"
 
+
 // running bTestB-ElevatorI.txt
 //@RUN "src/test/sTestB1-Elevator.txt"
 //DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
 //@RUN "src/test/bTestB-ElevatorI.txt"
+
 
 // running bTestC-ElevatorII.txt
 //@RUN "src/test/sTestB2-Elevator.txt"
@@ -44,11 +63,65 @@
 
 
 // running bTestD-AileronI.txt
-@RUN "src/test/sTestC2-Aileron.txt"
-DECLARE BUS bs1 WITH CONTROLLER aileron_controller2
-@RUN "src/test/bTestD-AileronI.txt"
+//@RUN "src/test/sTestC2-Aileron.txt"
+//DECLARE BUS bs1 WITH CONTROLLER aileron_controller2
+//@RUN "src/test/bTestD-AileronI.txt"
+
+
+// running bTestF-AileronIII.txt
+//@RUN "src/test/sTestC3-Aileron.txt"
+//DECLARE BUS bs1 WITH CONTROLLER aileron_controller4
+//@RUN "src/test/bTestF-AileronIII.txt"
+
+
+// running bTestG-AileronIV.txt
+//@RUN "src/test/sTestC5-Aileron.txt"
+//DECLARE BUS bs1 WITH CONTROLLER aileron_controller5
+//@RUN "src/test/bTestG-AileronIV.txt"
+
+
+// running bTestH-AileronV.txt
+//@RUN "src/test/sTestC6-Aileron.txt"
+//DECLARE BUS bs1 WITH CONTROLLER aileron_controller6
+//@RUN "src/test/bTestH-AileronV.txt"
+
+
+// running bTestI-SpeedBrake.txt
+//@RUN "src/test/sTestC3-Aileron.txt"
+//DECLARE BUS bs1 WITH CONTROLLER aileron_controller4
+//RUN "src/test/bTestI-SpeedBrake.txt"
+
+
+// running bTestJ-FlapI.txt
+//@RUN "src/test/sTestD4-Flap.txt"
+//DECLARE BUS bs1 WITH CONTROLLER flap_controller4
+//@RUN "src/test/bTestJ-FlapI.txt"
+
+
+// running bTestK-FlapII.txt
+//@RUN "src/test/sTestD2-Flap.txt"
+//DECLARE BUS bs1 WITH CONTROLLER flap_controller2
+//@RUN "src/test/bTestK-FlapII.txt"
+
+
+// running bTestL-FlapIII.txt
+//@RUN "src/test/sTestD5-Flap.txt"
+//DECLARE BUS bs1 WITH CONTROLLER flap_controller5
+//@RUN "src/test/bTestL-FlapIII.txt"
+
+
+// running bTestM-Engine.txt
+//@RUN "src/test/sTestE3-Engine.txt"
+//DECLARE BUS bs1 WITH CONTROLLER engine_controller3
+//@RUN "src/test/bTestM-Engine.txt"
+
+
+// running bTestN-Gear.txt
+//@RUN "src/test/sTestF1-Gear.txt"
+//DECLARE BUS bs1 WITH CONTROLLER gear_controller1
+//@RUN "src/test/bTestN-Gear.txt"
 
 
 //leave here
-@WAIT 50
+@WAIT 80
 @EXIT
