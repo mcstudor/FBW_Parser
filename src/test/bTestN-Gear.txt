@@ -3,6 +3,9 @@
 // 2. (a) Raise gear_controller1, but at close to 50% on the main gear, (b) submit a halt.
 COMMIT
 DO gear_controller1 GEAR DOWN
+
+@WAIT 80
+
 DO gear_controller1 GEAR UP
 // fill in with wait corresponding to time when near 50%
 @WAIT 10

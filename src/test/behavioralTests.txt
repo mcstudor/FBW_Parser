@@ -35,9 +35,9 @@
 
 
 // running bTestB-ElevatorI.txt
-@RUN "src/test/sTestB1-Elevator.txt"
-DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
-@RUN "src/test/bTestB-ElevatorI.txt"
+//@RUN "src/test/sTestB1-Elevator.txt"
+//DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
+//@RUN "src/test/bTestB-ElevatorI.txt"
 
 
 // running bTestC-ElevatorII.txt
@@ -73,7 +73,7 @@ DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
 // running bTestI-SpeedBrake.txt
 //@RUN "src/test/sTestC3-Aileron.txt"
 //DECLARE BUS bs1 WITH CONTROLLER aileron_controller4
-//RUN "src/test/bTestI-SpeedBrake.txt"
+//@RUN "src/test/bTestI-SpeedBrake.txt"
 
 
 // running bTestJ-FlapI.txt
@@ -107,5 +107,5 @@ DECLARE BUS bs1 WITH CONTROLLER elevator_controller1
 
 
 //leave here
-@WAIT 80
+@WAIT 100
 @EXIT

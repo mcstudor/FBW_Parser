@@ -4,5 +4,7 @@
 // 3. Deflect flap_controller4 position up.
 COMMIT
 DO flap_controller4 DEFLECT FLAP 4
+
 DO flap_controller4 DEFLECT FLAP 3
+
 DO flap_controller4 DEFLECT FLAP UP

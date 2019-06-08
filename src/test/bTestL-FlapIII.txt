@@ -3,4 +3,6 @@
 // 2. Deflect flap_controller5 position up.
 COMMIT
 DO flap_controller5 DEFLECT FLAP 4
+@WAIT 50
 DO flap_controller5 DEFLECT FLAP UP
+@WAIT 50

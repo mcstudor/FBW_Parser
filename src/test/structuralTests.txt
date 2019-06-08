@@ -17,4 +17,4 @@
 //@RUN "src/test/sTestE1-Engine.txt"
 //@RUN "src/test/sTestE2-Engine.txt"
 //@RUN "src/test/sTestE3-Engine.txt"
-//@RUN "src/test/sTestF1-Gear.txt"
+@RUN "src/test/sTestF1-Gear.txt"

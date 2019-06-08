@@ -3,4 +3,6 @@
 // 2. Deflect aileron_controller4 down 0.
 COMMIT
 DO aileron_controller4 SPEED BRAKE ON
+@WAIT 80
 DO aileron_controller4 SPEED BRAKE OFF
+@WAIT 80
