@@ -95,9 +95,9 @@
 
 
 // running bTestM-Engine.txt
-//@RUN "src/test/sTestE3-Engine.txt"
-//DECLARE BUS bs1 WITH CONTROLLER engine_controller3
-//@RUN "src/test/bTestM-Engine.txt"
+@RUN "src/test/sTestE3-Engine.txt"
+DECLARE BUS bs1 WITH CONTROLLER engine_controller3
+@RUN "src/test/bTestM-Engine.txt"
 
 
 // running bTestN-Gear.txt

@@ -4,8 +4,8 @@
 // 3. Set engine_controller3 to 100% power.
 COMMIT
 DO engine_controller3 SET POWER 70
-
+@WAIT 80
 DO engine_controller3 SET POWER 40 ENGINE engine2
-
+@WAIT 80
 DO engine_controller3 SET POWER 100
-
+@WAIT 80
