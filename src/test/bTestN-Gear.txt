@@ -4,9 +4,9 @@
 COMMIT
 DO gear_controller1 GEAR DOWN
 
-@WAIT 80
+@WAIT 90
 
 DO gear_controller1 GEAR UP
 // fill in with wait corresponding to time when near 50%
-@WAIT 10
+@WAIT 20
 HALT gear_controller1

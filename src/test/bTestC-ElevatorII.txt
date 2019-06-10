@@ -3,6 +3,6 @@
 // 2. Deflect elevator_controller2 down full.
 COMMIT
 DO elevator_controller2 DEFLECT ELEVATOR 30 UP
-@WAIT 50
+@WAIT 70
 DO elevator_controller2 DEFLECT ELEVATOR 30 DOWN
 @WAIT 50
